@@ -1,6 +1,8 @@
+import logo from './cartImg.png';
+
 const CartWidget = (props) => {
     return(
-        <img src="./cartImg.png" style={{width:50}}></img>
+        <img src={logo} style={{width:70, margin: 20}} />
     )
 }
 
