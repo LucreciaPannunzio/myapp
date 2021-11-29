@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.divCardBody {
+  background: #fcf7f7;
+}
+
+.divContainer {
+  margin: 30px;
+  box-shadow: #6d6b6b;
+        -webkit-box-shadow: 2px 2px 4px #6d6b6b;
+        -moz-box-shadow: 2px 2px 4px #6d6b6b;
+}
+
+.buttonCarrito {
+  background-color: #8ebba4;
+  border: none;
+  font-size: .9rem;
+  color: black; 
+  box-shadow: #6d6b6b;
+    -webkit-box-shadow: 2px 2px 4px #6d6b6b;
+    -moz-box-shadow: 2px 2px 4px #6d6b6b;
+}
