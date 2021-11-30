@@ -1,9 +1,9 @@
 import './NavBar.css'
-import CartWidget from '../CartWidget'
+import CartWidget from '../CartWidget/CartWidget'
 
 const NavBar = () => {
     return (
-        <nav>
+        <nav className="navBar">
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
