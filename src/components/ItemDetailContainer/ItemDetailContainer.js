@@ -53,26 +53,22 @@ const getProduct = () => {
             resolve(productos[0], 2000)
         })
     })
-   
 }
 
 const ItemDetailContainer = () => {
-    
-    const [detail, setDetail] = useState([]);
-    
+    const [products, setProducts] = useState([]);    
     useEffect( () => {
         const list = getProduct()
         list.then (list => {
-            setDetail(list)
+            setProducts(list)
         })
         return ( () => {
-            setDetail([])
+            setProducts([])
         })
     })
-
     return(
         <div className="itemDetailContainer">
-            <ItemDetail productos={detail} />
+            <ItemDetail productos={products} />
             
         </div>
     )

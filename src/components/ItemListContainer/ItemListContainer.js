@@ -75,7 +75,6 @@ const ItemListContainer = () => {
         <div className="itemListContainer">
             
             <ItemList productos={listProduct} />
-            <ItemDetailContainer />
             {/*<ItemCount stock="15" initial="1" />*/}
         </div>
     )

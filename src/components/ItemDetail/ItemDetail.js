@@ -1,7 +1,7 @@
 import React from 'react'
 import "./ItemDetail.css";
 
-const ItemDetail = ({productos}) => {
+const ItemDetail = ({products}) => {
     return(
         <div>
            <img src= "../../assets/empanadas.jpg" className="imgCard"/>
@@ -11,5 +11,7 @@ const ItemDetail = ({productos}) => {
         </div>
     )
 }
+
+
 
 export default ItemDetail
