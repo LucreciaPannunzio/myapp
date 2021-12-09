@@ -1,9 +1,13 @@
 .divCardBody {
-    background: #fcf7f7;
+    background: #e2e2e2;
 }
 
 .divContainer {
+    background: #e2e2e2;
     margin: 30px;
+    width: 300px;
+    height: 200px;
+    padding-top: 30px;
     box-shadow: #6d6b6b;
           -webkit-box-shadow: 2px 2px 4px #6d6b6b;
           -moz-box-shadow: 2px 2px 4px #6d6b6b;
@@ -12,8 +16,9 @@
 .buttonDetalle {
     background-color: #8ebba4;
     border: none;
-    font-size: .9rem;
+    font-size: 1rem;
     color: black; 
+    text-decoration: none;
     box-shadow: #6d6b6b;
       -webkit-box-shadow: 2px 2px 4px #6d6b6b;
       -moz-box-shadow: 2px 2px 4px #6d6b6b;

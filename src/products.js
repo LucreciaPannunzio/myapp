@@ -1,9 +1,3 @@
-import { useState, useEffect } from 'react';
-import React from "react";
-import ItemDetail from "../ItemDetail/ItemDetail";
-import { useParams } from 'react-router-dom';
-import { getProductByCategory } from '../../products';
-
 const productos = [
     {
         img: "../../assets/empanadas.jpg",
@@ -105,35 +99,33 @@ const productos = [
     },
 ]
 
-const getProduct = () => {
-    return new Promise ( (resolve, reject) => {
-        setTimeout( () => {
-            resolve(productos[0], 2000)
-        })
+const categories = [
+    {id: 'comida-vegana' , description: 'Comida Vegana'},
+    {id: 'comida-no-vegana' , description: 'Comida No Vegana'}
+]
+
+export const getProductByCategory = (id) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(id)
+        }, 1000)        
     })
 }
 
-const ItemDetailContainer = () => {
-    const [products, setProducts] = useState([]);    
-    const {id} = useParams();
-
-    useEffect( () => {
-        const list = getProduct(id)
-        list.then (list => {
-            setProducts(list)
-        })
-
-        return ( () => {
-            setProducts([])
-        })
-    }, [id])
-
-    return(
-        <div className="itemDetailContainer">
-            <ItemDetail productos={products} />
-            
-        </div>
-    )
+export const getCategories = () => {    
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(categories)
+        }, 1000)        
+    })
 }
 
-export default ItemDetailContainer
+export const getProducts = () => {    
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(productos)
+        }, 2000)        
+    })
+}
+
+export default productos;

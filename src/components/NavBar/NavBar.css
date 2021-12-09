@@ -1,16 +1,20 @@
 .navbar {
         font-size: 1.1rem;
-        font-weight: 400;
-       
+        font-weight: 400; 
 }
 
 
-.navbar-nav {
-    padding: 20px;
+.logo {
+    width: 150px;
+}
+
+.categories {
+    width: 100%;
+    justify-content: space-around;
+    padding-top: 8px;
 }
 
 .nav-link {
     text-decoration: none;
-    padding: 60px;
     color: #fffbdf;
 }
