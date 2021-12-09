@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './item.css'
 import {Link} from 'react-router-dom';
+import productos from '../../products';
 
 const Item = ({product}) => {
    return(            
@@ -12,7 +13,7 @@ const Item = ({product}) => {
                 <div className="card-body divCardBody">
                     <h5 className="card-title">{product.name}</h5>
                     <p className="card-text">$ {product.price}</p>
-                    <Link className="buttonDetalle" to={`/detail/${product.id}`}>Ver detalle</Link>
+                    <Link className="buttonDetalle" to={`/detail/${productos.id}`}>Ver detalle</Link>
                 </div>
             </div>
            

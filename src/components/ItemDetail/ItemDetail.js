@@ -9,9 +9,8 @@ const ItemDetail = ({productos}) => {
            <img src={productos.img} className="imgCard"/>
            <p>Info: {productos.description}</p>
            <p>Precio: $ {productos.price}</p>
-           <Link to={`/detail/${productos.id}`}>
                 <button className="buttonCarrito">Agregar al carrito</button>
-           </Link>
+          
         </div>
 
         
