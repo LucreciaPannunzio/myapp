@@ -6,21 +6,21 @@ import {Link} from 'react-router-dom';
 import productos from '../../products';
 
 const Item = ({product}) => {
+    console.log(product)
    return(            
         <div className="row d-flex justify-content-center divCard">
-           
             <div className="card m-5 divContainer">
                 <div className="card-body divCardBody">
                     <h5 className="card-title">{product.name}</h5>
                     <p className="card-text">$ {product.price}</p>
-                    <Link className="buttonDetalle" to={`/detail/${productos.id}`}>Ver detalle</Link>
+                    <Link className="buttonDetalle" to={`/detail/${product.id}`}>Ver detalle</Link>
                 </div>
             </div>
-           
         </div>
    )
     
 }
+
 
 
 export default Item

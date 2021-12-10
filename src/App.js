@@ -8,6 +8,7 @@ import { Component } from 'react';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import ItemCount from './components/ItemCount/ItemCount';
 import React from 'react';
+import CategoryContainer from './components/CategoryContainer/CategoryContainer';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
                 <ItemListContainer />
             </Route>
             <Route exact path='/category/:categoryId'>
-                <ItemListContainer />
+                <CategoryContainer />
             </Route>
             <Route exact path='/detail/:id'>
                 <ItemDetailContainer />

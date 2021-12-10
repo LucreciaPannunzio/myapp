@@ -1,6 +1,7 @@
 import './NavBar.css'
 import CartWidget from '../CartWidget/CartWidget'
 import {Link} from 'react-router-dom';
+import productos from '../../products';
 import Logo from './Logo.png'
 
 const NavBar = () => {
@@ -15,8 +16,8 @@ const NavBar = () => {
                             <a className="nav-link active" aria-current="page" href="/#">Pippers Comida Vegana</a>
                             <a className="nav-link active" aria-current="page" href="/#">CowyPippers</a>
                             <a className="nav-link active" aria-current="page" href="/#">Contacto</a>*/}
-                            <Link to={'/category/:categoryVegana'} className="nav-link">Pippers Comida Vegana</Link>
-                            <Link to={'/category/:categoryNoVegana'} className="nav-link">CowyPippers</Link>
+                            <Link to={'/category/comida-vegana'} className="nav-link">Pippers Comida Vegana</Link>
+                            <Link to={'/category/comida-no-vegana'} className="nav-link">CowyPippers</Link>
                             <Link to={'/contact'} className="nav-link">Contacto</Link>
                         </div>
                     </div>

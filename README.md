@@ -1,3 +1,32 @@
+# Nombre del proyecto: 
+PIPPERS
+
+## Descripción:
+Pippers es un e-commerce de comida casera, con opciones veganas y no veganas.
+
+### Requisitos:
+No hay requisitos especiales.
+
+#### Instalación:
+Para instalar y ejecutar este proyecto, tipear: npm install
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

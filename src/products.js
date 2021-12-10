@@ -4,6 +4,7 @@ const productos = [
         id: '1',
         name: 'Empanadas de soja texturizada',
         price: '600',
+        category: 'comida-vegana',
         stock: 50,
         description: 'Empanadas con masa casera vegana, rellenas de soja texturizada.'
     },
@@ -103,14 +104,6 @@ const categories = [
     {id: 'comida-vegana' , description: 'Comida Vegana'},
     {id: 'comida-no-vegana' , description: 'Comida No Vegana'}
 ]
-
-export const getProductByCategory = (id) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(id)
-        }, 1000)        
-    })
-}
 
 export const getCategories = () => {    
     return new Promise((resolve, reject) => {

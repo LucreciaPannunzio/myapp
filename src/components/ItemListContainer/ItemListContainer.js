@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import ItemList from "../ItemList/ItemList";
 import './ItemListContainer.css' 
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
-import { getProducts, getProductByCategory } from '../../products'
+import productos, { getProducts } from '../../products'
+import { useParams } from 'react-router-dom';
 
 
-
- const ItemListContainer = () => {
+const ItemListContainer = () => {
     const [listProduct, setListProduct] = useState([]);
-    
+        
     useEffect( () => {
         const list = getProducts()
         list.then (list => {

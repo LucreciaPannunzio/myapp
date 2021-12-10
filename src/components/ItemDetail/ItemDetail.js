@@ -9,14 +9,13 @@ const ItemDetail = ({productos}) => {
            <img src={productos.img} className="imgCard"/>
            <p>Info: {productos.description}</p>
            <p>Precio: $ {productos.price}</p>
-                <button className="buttonCarrito">Agregar al carrito</button>
-          
+            <button className="buttonCarrito">Agregar al carrito</button>
         </div>
 
         
     )
+    
 }
-
 
 
 export default ItemDetail
