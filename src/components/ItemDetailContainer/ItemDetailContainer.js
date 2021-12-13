@@ -3,6 +3,7 @@ import React from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from 'react-router-dom';
 import productos from '../../products';
+import "./ItemDetailContainer.css";
 
 
 const getProduct = (id) => {

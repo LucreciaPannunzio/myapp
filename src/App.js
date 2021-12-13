@@ -28,7 +28,10 @@ function App() {
                 <ItemDetailContainer />
             </Route>
             <Route exact path='/count'>
-                <ItemCount stock={25} initial={1} />
+                <ItemCount />
+            </Route>
+            <Route exact path={'/cart'}>
+
             </Route>
           </Switch>
       </BrowserRouter>
