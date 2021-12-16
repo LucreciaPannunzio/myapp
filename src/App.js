@@ -7,8 +7,9 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import { Component } from 'react';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import ItemCount from './components/ItemCount/ItemCount';
-import React from 'react';
+import React, {useContext} from 'react';
 import CategoryContainer from './components/CategoryContainer/CategoryContainer';
+import { CartContextProvider } from './context/CartContext';
 
 
 function App() {
@@ -17,23 +18,25 @@ function App() {
     <div className="App">
       <BrowserRouter>
           <NavBar />
-          <Switch>
-            <Route exact path='/'>
-                <ItemListContainer />
-            </Route>
-            <Route exact path='/category/:categoryId'>
-                <CategoryContainer />
-            </Route>
-            <Route exact path='/detail/:id'>
-                <ItemDetailContainer />
-            </Route>
-            <Route exact path='/count'>
-                <ItemCount />
-            </Route>
-            <Route exact path={'/cart'}>
+          <CartContextProvider>
+            <Switch>
+              <Route exact path='/'>
+                  <ItemListContainer />
+              </Route>
+              <Route exact path='/category/:categoryId'>
+                  <CategoryContainer />
+              </Route>
+              <Route exact path='/detail/:id'>
+                  <ItemDetailContainer />
+              </Route>
+              <Route exact path='/count'>
+                  <ItemCount />
+              </Route>
+              <Route exact path={'/cart'}>
 
-            </Route>
-          </Switch>
+              </Route>
+            </Switch>
+          </CartContextProvider>
       </BrowserRouter>
     </div>
   );
