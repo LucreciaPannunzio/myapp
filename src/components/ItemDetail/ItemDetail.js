@@ -6,19 +6,14 @@ import ItemCount from '../ItemCount/ItemCount';
 import Item from '../Item/Item';
 
 
-const ItemDetail = ({productos}) => {
-    
-   const addToCart = () => {
-       console.log("Producto agregado al carrito!");
-   }
-   
+const ItemDetail = ({productos}) => { 
     
     return(
         <div className="cardDetail">
            <img src={productos.img} className="imgCard"/>
            <p>Info: {productos.description}</p>
            <p>Precio: $ {productos.price}</p>
-           <ItemCount stock={productos.stock} initial={0} onAdd={addToCart}/>
+           <ItemCount product={productos} initial={0} />
         </div>
 
         
