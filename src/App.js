@@ -10,7 +10,7 @@ import ItemCount from './components/ItemCount/ItemCount';
 import React, {useContext} from 'react';
 import CategoryContainer from './components/CategoryContainer/CategoryContainer';
 import { CartContextProvider } from './context/CartContext';
-
+import Cart from './components/Cart/Cart';
 
 function App() {
  
@@ -33,7 +33,7 @@ function App() {
                   <ItemCount />
               </Route>
               <Route exact path={'/cart'}>
-
+                  <Cart />
               </Route>
             </Switch>
           </CartContextProvider>
