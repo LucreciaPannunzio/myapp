@@ -4,10 +4,10 @@ import {Link} from 'react-router-dom';
 import productos from '../../products';
 import Logo from './Logo.png';
 import { useContext } from 'react';
-import Context from '../../context/CartContext';
+import Context, { UseCart } from '../../context/CartContext';
 
 const NavBar = () => {
-    /*const {cart, cantidadTotal} = useContext(Context);*/
+    //const {cart, cantidadTotal} = useCart();
     
     return (
         <nav className="navBar">
@@ -27,9 +27,7 @@ const NavBar = () => {
                     </div>
                 </div>
                 <CartWidget />
-                {/*<span>{cantidadTotal}</span>*/}
             </nav>  
-
         </nav>
     )
 }

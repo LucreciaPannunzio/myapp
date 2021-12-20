@@ -4,30 +4,39 @@ import Context from '../../context/CartContext';
 import { useState, useEffect } from 'react';
 import { UseCart } from '../../context/CartContext';
 import './Cart.css';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
-    const {cart} = UseCart();
+    const {cart, removeItem, getTotalCart} = UseCart();
     
-    const carritoVacio = [];
-    if (cart === carritoVacio) {
+    if (cart?.length === 0) {
         return (
-            <h3>Carrito vacío</h3>
-        )
+            <>
+                <h4 className='carritoVacio'>Carrito vacío!</h4>
+                <Link to={'/'} className='cartButton'>Ir a la tienda</Link>
+            </>
+        );
     }
 
+    const handleDeleteItem = (id) => {
+        removeItem(id);
+    }
        
     return (
         <div>
             <h1 className="cartTitle">Mi carrito</h1>
-            <h3 className='montoTotal'>Monto total: ${}</h3>
-            <div className='divCart'>    
-            {/*{cart === carritoVacio ? <h3>Carrito vacío</h3> : }*/}
+            <h3 className='montoTotal'>Monto total: $ {getTotalCart()}</h3>
+            <div className='divCart'>
                 {cart.map( product => {
                     return (
                         <div className="row d-flex justify-content-center divCart">
                             <div className="card m-5 divCartContainer">
                                 <div>
-                                    <button className='buttonEliminar'>X</button>
+                                    <button
+                                      onClick={() => handleDeleteItem(product.id)} 
+                                      className='buttonEliminar'>
+                                        X
+                                    </button>
                                 </div>
                                 <div className="card-body divCartBody">
                                     <img src={product.img} className="imgCart"/>
@@ -44,25 +53,6 @@ const Cart = () => {
                 })}
             </div>
         </div>
-        
-    /*    <table className='table table-striped'>
-            <thead>
-                <tr>
-                    <th scope='col'>Foto</th>
-                    <th scope='col'>Descripción</th>
-                    <th scope='col'>Cantidad</th>
-                </tr>
-            </thead>
-            <tbody>
-                {cart.map( producto => {
-                        return <tr>
-                            <td> {producto.item.img}</td>
-                            <td> {producto.item.description} </td>
-                            <td> {producto.amount} </td>
-                        </tr>
-                })}
-            </tbody>
-        </table>*/
     )
 }
 

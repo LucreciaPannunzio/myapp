@@ -55,3 +55,28 @@
     margin-top: 8px;
     font-size: 1.5em;
 }
+
+.carritoVacio {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: red;
+}
+
+.cartButton {
+    width: 20%;
+    padding: 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    background-color: #c5e7d4;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    border: none;
+    border-style: none;
+    cursor: pointer;
+    outline: inherit;
+    font-size: medium;
+    margin-right: 10px;
+}

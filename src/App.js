@@ -17,9 +17,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <CartContextProvider>
           <NavBar />
-          <CartContextProvider>
-            <Switch>
+          <Switch>
               <Route exact path='/'>
                   <ItemListContainer />
               </Route>
@@ -29,9 +29,9 @@ function App() {
               <Route exact path='/detail/:id'>
                   <ItemDetailContainer />
               </Route>
-              <Route exact path='/count'>
+              {/*<Route exact path='/count'>
                   <ItemCount />
-              </Route>
+              </Route>*/}
               <Route exact path={'/cart'}>
                   <Cart />
               </Route>

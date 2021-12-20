@@ -8,7 +8,6 @@ export const UseCart = () => {
 
 export const CartContextProvider = ({children}) => {
     const [cart, setCart] = useState([]);
-    const [cantidadTotal, setCantidadTotal] = useState(0);
 
     const addItem = (item) => {
         if(!isInCart(item.id)) {
@@ -36,11 +35,11 @@ export const CartContextProvider = ({children}) => {
     }   
 
     const getTotalCart = () => {
-        let subtotal = 0;
-        cart.forEach(product => {
-            subtotal += product.amount;
+        let total = 0;
+        cart.forEach(({amount, price}) => {
+            total = total + (amount*price);
         })
-        setCantidadTotal(subtotal);
+        return total;
     }
 
     return (
