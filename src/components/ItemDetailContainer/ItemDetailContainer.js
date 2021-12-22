@@ -4,8 +4,10 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from 'react-router-dom';
 import productos from '../../products';
 import "./ItemDetailContainer.css";
-
-
+import {getDoc, doc} from 'firebase/firestore';
+import {db} from '../../services/firebase/firebase';
+import {querySnapshot} from 'firebase/firestore';
+/*
 const getProduct = (id) => {
     return new Promise ( (resolve, reject) => {
         const producto = productos.find( prod => prod.id === id)
@@ -13,19 +15,23 @@ const getProduct = (id) => {
             resolve(producto)
         }, 1000)        
     })
-}
+}*/
 
 const ItemDetailContainer = () => {
     const [products, setProducts] = useState([]);    
     const {id} = useParams();
+    const [loading, setLoading] = useState();
 
     useEffect( () => {
-        const list = getProduct(id)
-        list.then (list => {
-            setProducts(list)
+        setLoading(true);
+        getDoc(doc(db,'items',id)).then((querySnapshot)=> {
+            const product = {id: querySnapshot.id, ...querySnapshot.data()};
+            setProducts(product);
+        }).catch((error) => {
+            console.log('Error searching items', error);
+        }).finally( () => {
+            setLoading(false);
         })
-
-        console.log(productos)
     }, [id])
 
     return(

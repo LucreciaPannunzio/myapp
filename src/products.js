@@ -6,7 +6,7 @@ const productos = [
         price: 600,
         category: 'comida-vegana',
         stock: 50,
-        description: 'Empanadas con masa casera vegana, rellenas de soja texturizada.'
+        description: 'Empanadas con masa casera vegana, rellenas de soja texturizada'
     },
     {
         img: "../../assets/burger.jpg",
@@ -15,7 +15,7 @@ const productos = [
         price: 480,
         category: 'comida-vegana',
         stock: 30,
-        description: 'Hamburguesas veganas, de calabaza, lentejas o garbanzos.'
+        description: 'Hamburguesas veganas, de calabaza, lentejas o garbanzos'
     },
     {
         img: "../../assets/pasta-vegana.jpg",
@@ -24,7 +24,7 @@ const productos = [
         price: 400,
         category: 'comida-vegana',
         stock: 20,
-        description: 'Pastas caseras veganas.'
+        description: 'Pastas caseras veganas'
     },
     {
         img: "../../assets/milanesas.jpg",
@@ -33,7 +33,7 @@ const productos = [
         price: 280,
         category: 'comida-vegana',
         stock: 30,
-        description: 'Milanesas de berenjenas, simples o napolitanas.'
+        description: 'Milanesas de berenjenas, simples o napolitanas'
     },
     {
         img: "../../assets/pizzas.jpg",
@@ -42,7 +42,7 @@ const productos = [
         price: 350,
         category: 'comida-vegana',
         stock: 20,
-        description: 'Piizas a la piedra, con queso vegano.'
+        description: 'Pizzas a la piedra, con queso vegano'
     },
     {
         img: "../../assets/guiso.jpg",
@@ -51,7 +51,7 @@ const productos = [
         price: 500,
         category: 'comida-vegana',
         stock: 10,
-        description: 'Guiso de verduras.'
+        description: 'Guiso de verduras'
     },
     {
         img: "../../assets/alitas-pollo.png",
@@ -60,7 +60,7 @@ const productos = [
         price: 650,
         category: 'comida-no-vegana',
         stock: 8,
-        description: 'Alitas de pollo con salsa de mostaza y miel.'
+        description: 'Alitas de pollo con salsa de mostaza y miel'
     },
     {
         img: "../../assets/bondiola.png",
@@ -69,7 +69,7 @@ const productos = [
         price: 600,
         category: 'comida-no-vegana',
         stock: 6,
-        description: 'Bondiola a la cerveza con papas.'
+        description: 'Bondiola a la cerveza con papas'
     },
     {
         img: "../../assets/cazuela-pollo.png",
@@ -78,7 +78,7 @@ const productos = [
         price: 500,
         category: 'comida-no-vegana',
         stock: 4,
-        description: 'Cazuela de pollo con verduras.'
+        description: 'Cazuela de pollo con verduras'
     },
     {
         img: "../../assets/empanadas-carne.png",
@@ -87,7 +87,7 @@ const productos = [
         price: 600,
         category: 'comida-no-vegana',
         stock: 24,
-        description: 'Empanadas de carne cortada a cuchillo.'
+        description: 'Empanadas de carne cortada a cuchillo'
     },
     {
         img: "../../assets/panceta.png",
@@ -96,7 +96,7 @@ const productos = [
         price: 700,
         category: 'comida-no-vegana',
         stock: 4,
-        description: 'Panceta con salsa al estilo chino.'
+        description: 'Panceta con salsa al estilo chino'
     },
 ]
 

@@ -4,6 +4,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './item.css'
 import {Link} from 'react-router-dom';
 import productos from '../../products';
+import {db} from '../../services/firebase/firebase';
 
 const Item = ({product}) => {
     console.log(product)
