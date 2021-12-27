@@ -1,14 +1,25 @@
 import './NavBar.css'
 import CartWidget from '../CartWidget/CartWidget'
 import {Link} from 'react-router-dom';
-import productos from '../../products';
 import Logo from './Logo.png';
-import { useContext } from 'react';
-import Context, { UseCart } from '../../context/CartContext';
+import { useEffect, useState } from 'react';
+import {db} from '../../services/firebase/firebase';
+import { getDocs, collection } from 'firebase/firestore';
 
 const NavBar = () => {
     //const {cart, cantidadTotal} = useCart();
-    
+    const [categories, setCategories] = useState([]);
+
+    useEffect( () => {
+        getDocs(collection(db,'categories')).then((querySnapshot) => {
+            const categories = querySnapshot.docs.map(doc => {
+                return {id: doc.id, ...doc.data()}
+            })
+            setCategories(categories);
+        })
+    }, [])
+
+
     return (
         <nav className="navBar">
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -16,13 +27,11 @@ const NavBar = () => {
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <Link to={'/'} className="nav-link"><img src={Logo} className="logo"/></Link>
                         <div className="navbar-nav categories">
-                            {/*<a className="nav-link active" aria-current="page" href="/#">PIPPERS</a>
-                            <a className="nav-link active" aria-current="page" href="/#">Pippers Comida Vegana</a>
-                            <a className="nav-link active" aria-current="page" href="/#">CowyPippers</a>
-                            <a className="nav-link active" aria-current="page" href="/#">Contacto</a>*/}
+                            {categories.map(cat=> <Link key={cat.id} className='Option nav-link' to={`/category/${cat.id}`}>{cat.description}</Link>)}
+                           {/*
                             <Link to={'/category/comida-vegana'} className="nav-link">Pippers Comida Vegana</Link>
                             <Link to={'/category/comida-no-vegana'} className="nav-link">CowyPippers</Link>
-                            <Link to={'/contact'} className="nav-link">Contacto</Link>
+                           <Link to={'/contact'} className="nav-link">Contacto</Link>*/}
                         </div>
                     </div>
                 </div>

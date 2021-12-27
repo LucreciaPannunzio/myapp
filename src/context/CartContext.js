@@ -8,6 +8,16 @@ export const UseCart = () => {
 
 export const CartContextProvider = ({children}) => {
     const [cart, setCart] = useState([]);
+    const [message, setMessage] = useState('');
+    const [severity, setSeverity] = useState('');
+
+    const setNotification = (severity, message) => {
+        setMessage(message);
+        setSeverity(severity);
+        setTimeout( () => {
+            setMessage('');
+        }, 2000);
+    }
 
     const addItem = (item) => {
         if(!isInCart(item.id)) {
@@ -45,12 +55,18 @@ export const CartContextProvider = ({children}) => {
     return (
         <Context.Provider 
             value={{
+                notification: {
+                    message,
+                    severity
+                },
+                setNotification,
                 cart,
                 addItem,
                 removeItem,
                 isInCart,
                 clear,
-                getTotalCart
+                getTotalCart,
+                
             }}>
             {children}
         </Context.Provider>

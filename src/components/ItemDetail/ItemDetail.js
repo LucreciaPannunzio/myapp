@@ -3,7 +3,6 @@ import "./ItemDetail.css";
 import productos from '../../products';
 import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
-import Item from '../Item/Item';
 
 
 const ItemDetail = ({productos}) => { 

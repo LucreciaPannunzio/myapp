@@ -1,7 +1,6 @@
 import logo from './cart.png';
 import "./CartWidget.css";
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
 import { UseCart } from "../../context/CartContext";
 
 const CartWidget = (props) => {

@@ -1,14 +1,73 @@
-import React from 'react';
-import { useContext } from 'react';
-import Context from '../../context/CartContext';
-import { useState, useEffect } from 'react';
-import { UseCart } from '../../context/CartContext';
+import React, { useState } from 'react';
+import { UseCart, useContext } from '../../context/CartContext';
 import './Cart.css';
 import { Link } from 'react-router-dom';
+import {addDoc, collection, Timestamp, writeBatch, getDoc, doc, DocumentSnapshot, orderBy} from 'firebase/firestore';
+import {db} from '../../services/firebase/firebase';
+import productos from '../../products';
+import Message from '../Message/message';
 
 const Cart = () => {
-    const {cart, removeItem, getTotalCart} = UseCart();
+    const {cart, removeItem, getTotalCart, clear} = UseCart();
+    const [processingOrder, setProcessingOrder] = useState(false);
+    const [contact, setContact] = useState({
+        name: '',
+        mail: '',
+        phone: ''
+    });
+    const {setNotification} = UseCart();
     
+    const llenarForm = (e) => {
+        const {name, phone, mail} = e.target;
+    }
+
+    const confirmOrder = () => {
+        setProcessingOrder(true);
+
+        const objOrder = {
+            buyer: {
+                name: contact.name,
+                phone: contact.phone,
+                mail: contact.mail
+            },
+            items: productos,
+            date: Timestamp.fromDate(new Date()),
+            total: getTotalCart()
+        }
+
+        const batch = writeBatch(db);
+        const outOfStock = [];
+
+        objOrder.items.forEach( (prod) => {
+            getDoc(doc(db, 'items', prod.id).then((documentSnapshot) => {
+                if(documentSnapshot.data().stock >= prod.amount) {
+                    batch.update(doc(db, 'items', documentSnapshot.id), {stock: documentSnapshot.data().stock - prod.amount});
+                } else {
+                    outOfStock.push({id: documentSnapshot.id, ...documentSnapshot.data()});
+                }
+            }))
+        })
+
+        if(outOfStock.length === 0) {
+            addDoc(collection(db,'orders'), objOrder).then( ({id}) => {
+                batch.commit().then( () => {
+                    setNotification('success', 'El ID de su orden es: ', id)
+                });    
+            }).catch( (error) => {
+                setNotification('error', `Error ejecutando la orden: ${error}`);
+            }).finally( () => {
+                setProcessingOrder(false);
+                clear();
+            }) 
+        }
+
+        setTimeout( () => {
+            clear();
+            setProcessingOrder(false);
+        }, 1000);
+    }
+    
+   
     if (cart?.length === 0) {
         return (
             <>
@@ -51,6 +110,37 @@ const Cart = () => {
                         </div>
                     )    
                 })}
+            </div>
+            <div>
+                {!processingOrder ? (
+                    <form method="POST" className='contactForm' onSubmit={confirmOrder}>
+                        <div>
+                            <div className='formDiv'>
+                                <label for="name">Ingrese su nombre:</label>
+                                <input onChange={llenarForm} type="text" name="name" placeholder="nombre" className='inputText'/>
+                            </div>
+                            <div className='formDiv'>
+                                <label for="email">Ingrese su email:</label>
+                                <input onChange={llenarForm} type="email" name="mail" placeholder="email" className='inputText'/>
+                            </div>
+                            <div className='formDiv'>
+                                <label for="phone">Ingrese su número de teléfono:</label>
+                                <input onChange={llenarForm} type="text" name="phone" placeholder="teléfono" className='inputText'/>
+                            </div>
+                            
+                                <button className='buttonForm'>
+                                    Finalizar compra
+                                </button>
+                            
+                        </div>
+                    </form>
+                ) : (
+                    <>
+                        <h1>Estamos generando su orden...</h1>
+                        
+                    </>
+                   
+                )}
             </div>
         </div>
     )

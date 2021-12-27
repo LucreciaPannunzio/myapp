@@ -80,3 +80,34 @@
     font-size: medium;
     margin-right: 10px;
 }
+
+.contactForm {
+    margin: 50px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 50px;
+    border: #101414 double 2px;
+    width: 50%;
+    font-size: 1.1em;
+    margin-left: 360px;
+}
+
+.inputText {
+    width: 50%;
+    margin-left: 10px;
+    padding: 1px;
+    font-size: .9em;
+}
+
+.formDiv {
+    margin: 10px;
+}   
+
+.buttonForm {
+    background-color: #2b2c2c;
+    color: #f7f6f1;
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    margin-right: 10px;
+}
