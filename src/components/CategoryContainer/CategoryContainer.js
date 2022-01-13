@@ -3,7 +3,9 @@ import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import productos from '../../products';
-import Item from '../Item/Item'
+import Item from '../Item/Item';
+import { db } from '../../services/firebase/firebase';
+import {collection, getDocs, querySnapshot, query, where} from 'firebase/firestore';
 
 const getProductByCategory = (categoryId) => {
     

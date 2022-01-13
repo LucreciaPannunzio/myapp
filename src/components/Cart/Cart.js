@@ -30,7 +30,7 @@ const Cart = () => {
                 phone: contact.phone,
                 mail: contact.mail
             },
-            items: productos,
+            items: cart,
             date: Timestamp.fromDate(new Date()),
             total: getTotalCart()
         }
@@ -39,13 +39,13 @@ const Cart = () => {
         const outOfStock = [];
 
         objOrder.items.forEach( (prod) => {
-            getDoc(doc(db, 'items', prod.id).then((documentSnapshot) => {
+            getDoc(doc(db, 'items', prod.id)).then((documentSnapshot) => {
                 if(documentSnapshot.data().stock >= prod.amount) {
                     batch.update(doc(db, 'items', documentSnapshot.id), {stock: documentSnapshot.data().stock - prod.amount});
                 } else {
                     outOfStock.push({id: documentSnapshot.id, ...documentSnapshot.data()});
                 }
-            }))
+            })
         })
 
         if(outOfStock.length === 0) {
@@ -127,12 +127,10 @@ const Cart = () => {
                                 <label for="phone">Ingrese su número de teléfono:</label>
                                 <input onChange={llenarForm} type="text" name="phone" placeholder="teléfono" className='inputText'/>
                             </div>
-                            
                                 <button className='buttonForm'>
                                     Finalizar compra
                                 </button>
-                            
-                        </div>
+                            </div>
                     </form>
                 ) : (
                     <>
