@@ -4,13 +4,12 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import productos from '../../products';
 import Item from '../Item/Item';
+import ItemDetail from '../ItemDetail/ItemDetail';
 import { db } from '../../services/firebase/firebase';
 import {collection, getDocs, querySnapshot, query, where} from 'firebase/firestore';
 
 const getProductByCategory = (categoryId) => {
-    
     return new Promise( (resolve, reject) => {
-
         const categorias = productos.filter ( producto => producto.category === categoryId)
         console.log(categorias)
 
@@ -18,9 +17,7 @@ const getProductByCategory = (categoryId) => {
             resolve(categorias)
         }, 1000);
     })
-    
 }
-
 
 const CategoryContainer = () => {
     const [categories, setCategories] = useState([]);
@@ -36,7 +33,7 @@ const CategoryContainer = () => {
     return (
         <div className="ItemList">
             {categories.map(product => {
-                return <Item key={product.id} product={product} /> 
+                return <Item key={product.cat} product={product} /> 
             })}
         </div> 
     )

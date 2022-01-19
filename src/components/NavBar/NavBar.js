@@ -28,10 +28,6 @@ const NavBar = () => {
                         <Link to={'/'} className="nav-link"><img src={Logo} className="logo"/></Link>
                         <div className="navbar-nav categories">
                             {categories.map(cat=> <Link key={cat.id} className='Option nav-link' to={`/category/${cat.id}`}>{cat.description}</Link>)}
-                           {/*
-                            <Link to={'/category/comida-vegana'} className="nav-link">Pippers Comida Vegana</Link>
-                            <Link to={'/category/comida-no-vegana'} className="nav-link">CowyPippers</Link>
-                           <Link to={'/contact'} className="nav-link">Contacto</Link>*/}
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import {addDoc, collection, Timestamp, writeBatch, getDoc, doc, DocumentSnapshot, orderBy} from 'firebase/firestore';
 import {db} from '../../services/firebase/firebase';
 import productos from '../../products';
-import Message from '../Message/message';
+import Message from '../Message/Message';
 
 const Cart = () => {
     const {cart, removeItem, getTotalCart, clear} = UseCart();
@@ -18,7 +18,8 @@ const Cart = () => {
     const {setNotification} = UseCart();
     
     const llenarForm = (e) => {
-        const {name, phone, mail} = e.target;
+        const {name, phone, mail, value} = e.target;
+        setContact({...contact, [name]:value, [phone]: value, [mail]: value});
     }
 
     const confirmOrder = () => {
@@ -55,19 +56,15 @@ const Cart = () => {
                 });    
             }).catch( (error) => {
                 setNotification('error', `Error ejecutando la orden: ${error}`);
-            }).finally( () => {
-                setProcessingOrder(false);
-                clear();
-            }) 
+            }).finally( () => { 
+                setTimeout( () => {
+                    clear();
+                    setProcessingOrder(false);
+                }, 2000);
+            });
         }
-
-        setTimeout( () => {
-            clear();
-            setProcessingOrder(false);
-        }, 1000);
     }
     
-   
     if (cart?.length === 0) {
         return (
             <>
@@ -135,9 +132,8 @@ const Cart = () => {
                 ) : (
                     <>
                         <h1>Estamos generando su orden...</h1>
-                        
+                        <Message />
                     </>
-                   
                 )}
             </div>
         </div>
