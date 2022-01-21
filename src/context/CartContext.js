@@ -31,8 +31,7 @@ export const CartContextProvider = ({children}) => {
     }
 
     const isInCart = (id) => {
-        const itemInCart = cart.find((product) => product.id === id);
-        return itemInCart === undefined ? false : true;
+        return cart.some(product => product.id === id)
     }
 
     const removeItem = (id) => {
@@ -52,6 +51,12 @@ export const CartContextProvider = ({children}) => {
         return total;
     }
 
+    const getCart = () => {
+        let subtotal = 0;
+        cart.forEach(element => { subtotal += element.amount })
+        return subtotal;
+    }
+
     return (
         <Context.Provider 
             value={{
@@ -66,7 +71,7 @@ export const CartContextProvider = ({children}) => {
                 isInCart,
                 clear,
                 getTotalCart,
-                
+                getCart,
             }}>
             {children}
         </Context.Provider>

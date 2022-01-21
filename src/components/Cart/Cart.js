@@ -4,8 +4,6 @@ import './Cart.css';
 import { Link } from 'react-router-dom';
 import {addDoc, collection, Timestamp, writeBatch, getDoc, doc, DocumentSnapshot, orderBy} from 'firebase/firestore';
 import {db} from '../../services/firebase/firebase';
-import productos from '../../products';
-import Message from '../Message/Message';
 
 const Cart = () => {
     const {cart, removeItem, getTotalCart, clear} = UseCart();
@@ -60,7 +58,8 @@ const Cart = () => {
                 setTimeout( () => {
                     clear();
                     setProcessingOrder(false);
-                }, 2000);
+                    <h1>Orden generada!</h1>
+                }, 5000);
             });
         }
     }
@@ -131,8 +130,8 @@ const Cart = () => {
                     </form>
                 ) : (
                     <>
-                        <h1>Estamos generando su orden...</h1>
-                        <Message />
+                        <h1>Orden generada...</h1>
+                        
                     </>
                 )}
             </div>

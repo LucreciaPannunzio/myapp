@@ -5,7 +5,6 @@ import './item.css'
 import {Link} from 'react-router-dom';
 
 const Item = ({product}) => {
-    console.log(product)
    return(            
         <div className="row d-flex justify-content-center divCard">
             <div className="card m-5 divContainer">

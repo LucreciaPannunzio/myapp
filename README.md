@@ -10,7 +10,9 @@ No hay requisitos especiales.
 #### Instalación:
 Para instalar y ejecutar este proyecto, tipear: npm install
 
-
+#### Uso:
+La app permite seleccionar productos de dos categorías (comida vegana y no vegana). Dentro de cada categoría, se muestra el listado de productos correspondientes a la misma. Cuando el usuario clickea en el botón "Ver Detalle", se muestra info adicional del producto, junto con el precio y la opción de agregar al carrito.
+En el encabezado de la página y a la derecha, se puede visualizar el carrito de compras con la cantidad de productos añadidos. Al clickear en el mismo, el usuario tiene la opción de eliminar un producto o la totalidad, así como de realizar la compra al hacer click en "Finalizar compra" y completar los datos del formulario, datos que serán enviados para generar la orden de compra.
 
 
 

@@ -2,7 +2,6 @@ import {getFirestore, collection, getDocs, orderBy, query} from 'firebase/firest
 import React, { useContext, useEffect, useState } from 'react';
 import Message from '../Message/Message';
 import { Link } from 'react-router-dom';
-import { UseCart } from '../../context/CartContext';
 
 export const Dashboard = () => {
     const [order, setOrder] = useState([]);

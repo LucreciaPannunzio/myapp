@@ -7,7 +7,6 @@ import {db} from '../../services/firebase/firebase';
 import { getDocs, collection } from 'firebase/firestore';
 
 const NavBar = () => {
-    //const {cart, cantidadTotal} = useCart();
     const [categories, setCategories] = useState([]);
 
     useEffect( () => {

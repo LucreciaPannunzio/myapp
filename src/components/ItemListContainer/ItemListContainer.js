@@ -9,10 +9,10 @@ import {collection, getDocs, querySnapshot, query, where} from 'firebase/firesto
 const ItemListContainer = () => {
     const [listProduct, setListProduct] = useState([]);
     const [loading, setLoading] = useState();
-    const {id} = useParams();
+    const {categoryId} = useParams();
         
     useEffect( () => {
-        if(!id) {
+        if(!categoryId) {
             setLoading(true);
             getDocs(collection(db, 'items')).then((querySnapshot) => {
                 const products = querySnapshot.docs.map(doc => {
@@ -26,7 +26,7 @@ const ItemListContainer = () => {
             });
         } else {
             setLoading(true);
-            getDocs(query(collection(db,'items'), where('category', '==', id))).then((querySnapshot) => {
+            getDocs(query(collection(db,'items'), where('category', '==', categoryId))).then((querySnapshot) => {
                 const products = querySnapshot.docs.map(doc => {
                     return {id: doc.id, ...doc.data()}
                 })
@@ -41,7 +41,7 @@ const ItemListContainer = () => {
         return ( () => {
             setListProduct([])
         })
-    }, [])
+    }, [categoryId])
 
     if(loading) {
         return <h1>Loading...</h1>

@@ -26,8 +26,6 @@ const ItemCount = ({product, initial}) => {
     const addToCart = () => {
         const dataToSend = {...product, amount: count };
         addItem(dataToSend);
-        console.log("Producto agregado al carrito!");
-        console.log(dataToSend)
     }
 
     return (
